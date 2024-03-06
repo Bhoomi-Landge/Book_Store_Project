@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+<html lang="en">
+<head>
+    
+    
+    <title>Document</title>
+</head>
+<body>
+    {%block body%}
+    <h1>Welcome To My Bookstore</h1>
+    <h2>Welcome {{user}}
+        {% if isActive%}
+    <h3>{{user}} is Active<h3>
+        {% else %}
+        <h3>{{user}} User is logout<h3>
+            {%endif%}
+    {%endblock%}
+</body>
+</html>
