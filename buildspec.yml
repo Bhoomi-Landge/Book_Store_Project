@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing dependencies"
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - echo "Build stage"
+  post_build:
+    commands:
+      - echo "Post build - syncing to S3"
+      - aws s3 sync ./static s3://your-s3-bucket-name/static
+
+artifacts:
+  files:
+    - app.py
+    - templates/**/*
+    - static/**/* 
+  discard-paths: yes
